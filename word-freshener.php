@@ -3,7 +3,7 @@
 /*
  Plugin Name:Word Freshener 
  Description:A simple plugin to filter commonly used unwanted and bad words from anywhere in your site. Replace words with full customization.
- Version: 1.0
+ Version: 1.1
  Author: Sourov Amin
  Author URI: https://www.linkedin.com/in/hossain-amin/
  License: GPLv2+

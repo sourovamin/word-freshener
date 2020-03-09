@@ -4,6 +4,7 @@
  * Word mangement dashboard.
  */
 function wfp_main(){
+    if ( !is_admin() ){ return; }
     global $wpdb;
     $table_name = $wpdb->prefix ."wfp";
     
@@ -71,8 +72,8 @@ function wfp_main(){
             $update_row = $wpdb->update( 
                 $table_name, 
                 array( 
-                    'word' => $_POST["acw"],	
-                    'modified' => $_POST["mow"]	
+                    'word' => sanitize_text_field( $_POST["acw"] ),	
+                    'modified' => sanitize_text_field( $_POST["mow"] )	
                 ), 
                 array( 'ID' => $_POST["wid"] )
             );
@@ -96,6 +97,7 @@ function wfp_main(){
  * Add word dashboard
  */
 function wfp_add_words(){
+    if ( !is_admin() ){ return; }
 ?>
     <br>
     <h1>Add Word</h1>
@@ -108,8 +110,8 @@ function wfp_add_words(){
   
 <?php
     if (isset($_POST["add_submit"])){
-        $ac_word=$_POST["ac_word"];
-        $mo_word=$_POST["mo_word"];
+        $ac_word = sanitize_text_field( $_POST["ac_word"] );
+        $mo_word = sanitize_text_field( $_POST["mo_word"] );
         wfp_insert($ac_word,$mo_word);
     }
 }
@@ -128,7 +130,7 @@ function wfp_insert($ac_word,$mo_word){
             $table_name, 
             array(
                 "id" => NULL,
-                "word" => $ac_word, 
+                "word" => " ".$ac_word, 
                 "modified" => $mo_word,
             ),
 	
@@ -141,7 +143,7 @@ function wfp_insert($ac_word,$mo_word){
         ); 
     
         if($add_row){
-            echo "New word:". $ac_word ." has been added successfully!";
+            echo "New word: ". $ac_word ." has been added successfully!";
         }	
 	}
     else{

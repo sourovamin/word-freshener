@@ -151,3 +151,38 @@ function wfp_insert($ac_word,$mo_word){
     }  
 }
 // End of inset data function
+
+
+/**
+ * Function for settings
+ */
+function wfp_settings(){
+    if (isset($_POST["save_change"])){
+        $wfp_op_settings = [];
+        $wfp_op_settings["content"] = isset($_POST["wfp_content"]) ? 1 : 0;
+        $wfp_op_settings["title"] = isset($_POST["wfp_title"]) ? 1 : 0;
+        $wfp_op_settings["comment"] = isset($_POST["wfp_comment"]) ? 1 : 0;
+        
+        update_option("wfp_op_settings", $wfp_op_settings);
+    }
+    
+    $option = get_option("wfp_op_settings");
+    ?>
+    <div class="wrap">
+        <h2>Settings</h2>
+        <form id="wfp_settings" method="post" action="">
+            <h3>Disable Filter For</h3>
+            <input type="checkbox" name="wfp_content" value="1" <?php checked(1, $option["content"], true); ?> />
+            Page/Post Main Content<br>
+            <input type="checkbox" name="wfp_title" value="1" <?php checked(1, $option["title"], true); ?> />
+            Titles<br>
+            <input type="checkbox" name="wfp_comment" value="1" <?php checked(1, $option["comment"], true); ?> />
+            Comments
+            
+            <p class="submit">
+                <input type="submit" value="Save Change" name="save_change" class="button button-primary">
+            </p>
+        </form>
+    </div> <?php
+}
+// End of settings

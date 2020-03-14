@@ -99,14 +99,24 @@ function wfp_main(){
 function wfp_add_words(){
     if ( !is_admin() ){ return; }
 ?>
-    <br>
-    <h1>Add Word</h1>
-    <br><br>
-    <form id="wfp_add" action="" method="post">
-        Actual Word:&emsp;&ensp;&nbsp;<input type="text" name="ac_word"><br><br>
-        Modified Word: <input type="text" name="mo_word"><br><br>
-        <input type="submit" value="Add Word" name="add_submit"><br>
-    </form>
+    <div class="wrap">
+        <h1>Add Word</h1>
+        <form id="wfp_add" action="" method="post">
+            <table class="form-table">
+                <tr>
+                    <th scope="row"><label for="ac_word">Actual Word</label></th>
+                    <td><input type="text" name="ac_word"></td>
+                </tr>
+                <tr>
+                    <th scope="row"><label for="mo_word">Modified Word</label></th>
+                    <td><input type="text" name="mo_word"></td>
+                </tr>
+            </table>
+            <p class="submit">
+                <input type="submit" value="Add Word" name="add_submit" class="button button-primary"><br>
+            </p>
+        </form>
+    </div>
   
 <?php
     if (isset($_POST["add_submit"])){
@@ -143,7 +153,7 @@ function wfp_insert($ac_word,$mo_word){
         ); 
     
         if($add_row){
-            echo "New word: ". $ac_word ." has been added successfully!";
+            echo "<div class='updated notice'>New word: <strong>". $ac_word ."</strong> has been added successfully!</div>";
         }	
 	}
     else{
@@ -169,7 +179,7 @@ function wfp_settings(){
     $option = get_option("wfp_op_settings");
     ?>
     <div class="wrap">
-        <h2>Settings</h2>
+        <h1>Settings</h1>
         <form id="wfp_settings" method="post" action="">
             <h3>Disable Filter For</h3>
             <input type="checkbox" name="wfp_content" value="1" <?php checked(1, $option["content"], true); ?> />

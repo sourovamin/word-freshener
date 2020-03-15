@@ -15,32 +15,33 @@ function wfp_main(){
         "
     );
 ?>
-    <br>
+    <div class="wrap">
     <h1>Words Management</h1>
-    <br><br>
-    &emsp;<b>Actual Word</b>
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;
-    <b>Modified Word</b>
-    <br>
+    <table>
+        <tr>
+            <th style="width:20%;">Actual Word</th>
+            <th>Modified Word</th>
+        </tr>
+    </table>
     
 <?php
     foreach($wfpd as $wfpd){
 ?>
-        <br>
         <form id="wfp_manage" action="" method="post">
-            &emsp;
-            <input type="text" name="acw" value="<?php echo $wfpd->word; ?>">
-            &emsp;&emsp;
-            <input type="text" name="mow" value="<?php echo $wfpd->modified; ?>">
-            <input type="hidden" name="wid" value="<?php echo $wfpd->id; ?>">
-            &emsp;
-            <input type="submit" value="Update Word" name="update_submit">
-            &emsp;
-            <input type="submit" value="Delete Word" name="delete_submit">
+            <table>
+                <tr>
+                    <td><input type="text" name="acw" value="<?php echo $wfpd->word; ?>"></td>
+                    <td><input type="text" name="mow" value="<?php echo $wfpd->modified; ?>"></td>
+                    <td><input type="hidden" name="wid" value="<?php echo $wfpd->id; ?>"></td>
+                    <td><input type="submit" value="Update Word" name="update_submit"></td></td>
+                    <td><input type="submit" value="Delete Word" name="delete_submit"></td>
+                </tr>
+            </table>
         </form>
         
 <?php	
 	}
+?>  </div><?php
 	
     /**
      * Delete entry,

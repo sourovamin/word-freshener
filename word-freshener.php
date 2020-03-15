@@ -61,11 +61,11 @@ if($option['comment'] != 1){
 add_action( 'admin_menu', 'wfp_add_menu' );
 function wfp_add_menu() {
   
-  add_menu_page( 'Word Freshener', 'Word Freshener', 'manage_options', 'wfps-main','wfp_main', plugins_url('image/wf-logo.png', __FILE__),'25');
+  add_menu_page( 'Word Freshener', __('Word Freshener', 'word-freshener'), 'manage_options', 'wfps-main','wfp_main', plugins_url('image/wf-logo.png', __FILE__),'25');
   
-  add_submenu_page( 'wfps-main', 'Add Words',  'Add Words', 'manage_options', 'wfps_add', 'wfp_add_words' );
+  add_submenu_page( 'wfps-main', 'Add Words',  __('Add Words', 'word-freshener'), 'manage_options', 'wfps_add', 'wfp_add_words' );
   
-  add_submenu_page( 'wfps-main', 'WF Settings',  'Settings', 'manage_options', 'wfps_settings', 'wfp_settings' );
+  add_submenu_page( 'wfps-main', 'WF Settings',  __('Settings', 'word-freshener'), 'manage_options', 'wfps_settings', 'wfp_settings' );
   
 }
 

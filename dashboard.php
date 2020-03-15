@@ -16,11 +16,11 @@ function wfp_main(){
     );
 ?>
     <div class="wrap">
-    <h1>Words Management</h1>
+    <h1><?php echo __("Words Management", "word-freshener"); ?></h1>
     <table>
         <tr>
-            <th style="width:20%;">Actual Word</th>
-            <th>Modified Word</th>
+            <th style="width:20%;"><?php echo __("Actual Word", "word-freshener"); ?></th>
+            <th><?php echo __('Modified Word', 'word-freshener'); ?></th>
         </tr>
     </table>
     
@@ -33,8 +33,8 @@ function wfp_main(){
                     <td><input type="text" name="acw" value="<?php echo $wfpd->word; ?>"></td>
                     <td><input type="text" name="mow" value="<?php echo $wfpd->modified; ?>"></td>
                     <td><input type="hidden" name="wid" value="<?php echo $wfpd->id; ?>"></td>
-                    <td><input type="submit" value="Update Word" name="update_submit"></td></td>
-                    <td><input type="submit" value="Delete Word" name="delete_submit"></td>
+                    <td><input type="submit" value="<?php echo __("Update Word", "word-freshener"); ?>" name="update_submit"></td></td>
+                    <td><input type="submit" value="<?php echo __("Delete Word", "word-freshener"); ?>" name="delete_submit"></td>
                 </tr>
             </table>
         </form>
@@ -56,7 +56,7 @@ function wfp_main(){
             die;
         }
         else{
-            echo "Failed to Delete!";
+            echo __("Failed to Delete!", "word-freshener");
         }
     }
     // End of delete entry
@@ -86,7 +86,7 @@ function wfp_main(){
             }
         }
         else{
-            echo "Failed to Update!";
+            echo __("Failed to Update!", "word-freshener");
         }
     }
     // End of modify entry   
@@ -105,16 +105,16 @@ function wfp_add_words(){
         <form id="wfp_add" action="" method="post">
             <table class="form-table">
                 <tr>
-                    <th scope="row"><label for="ac_word">Actual Word</label></th>
+                    <th scope="row"><label for="ac_word"><?php echo __("Actual Word", "word-freshener"); ?></label></th>
                     <td><input type="text" name="ac_word"></td>
                 </tr>
                 <tr>
-                    <th scope="row"><label for="mo_word">Modified Word</label></th>
+                    <th scope="row"><label for="mo_word"><?php echo __("Modified Word", "word-freshener"); ?></label></th>
                     <td><input type="text" name="mo_word"></td>
                 </tr>
             </table>
             <p class="submit">
-                <input type="submit" value="Add Word" name="add_submit" class="button button-primary"><br>
+                <input type="submit" value="<?php echo __("Add Word", "word-freshener"); ?>" name="add_submit" class="button button-primary"><br>
             </p>
         </form>
     </div>
@@ -154,11 +154,12 @@ function wfp_insert($ac_word,$mo_word){
         ); 
     
         if($add_row){
-            echo "<div class='updated notice'>New word: <strong>". $ac_word ."</strong> has been added successfully!</div>";
+            echo "<div class='updated notice'>".__("New word","word-freshener")."<strong>: ".
+            $ac_word ."</strong> ".__("has been added successfully!", "word-freshener")."</div>";
         }	
 	}
     else{
-        echo "Word addition failed!";
+        echo __("Word addition failed!", "word-freshener");
     }  
 }
 // End of inset data function
@@ -180,18 +181,18 @@ function wfp_settings(){
     $option = get_option("wfp_op_settings");
     ?>
     <div class="wrap">
-        <h1>Settings</h1>
+        <h1><?php echo __("Settings", "word-freshener"); ?></h1>
         <form id="wfp_settings" method="post" action="">
-            <h3>Disable Filter For</h3>
+            <h3><?php echo __("Disable Filter For", "word-freshener"); ?></h3>
             <input type="checkbox" name="wfp_content" value="1" <?php checked(1, $option["content"], true); ?> />
-            Page/Post Main Content<br>
+            <?php echo __("Page/Post Main Content", "word-freshener"); ?><br>
             <input type="checkbox" name="wfp_title" value="1" <?php checked(1, $option["title"], true); ?> />
-            Titles<br>
+            <?php echo __("Titles", "word-freshener"); ?><br>
             <input type="checkbox" name="wfp_comment" value="1" <?php checked(1, $option["comment"], true); ?> />
-            Comments
+            <?php echo __("Comments", "word-freshener"); ?>
             
             <p class="submit">
-                <input type="submit" value="Save Change" name="save_change" class="button button-primary">
+                <input type="submit" value="<?php echo __("Save Change", "word-freshener"); ?>" name="save_change" class="button button-primary">
             </p>
         </form>
     </div> <?php

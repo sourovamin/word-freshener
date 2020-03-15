@@ -17,3 +17,4 @@ Documentation
     Just active the plugin and you are ready to go.
     Add new words from: Word "Freshener >> Add Words".
     Update or delete words from "Word Freshener >> Word Freshener".
+    Control filtering options from "Word Freshener >> Settings"

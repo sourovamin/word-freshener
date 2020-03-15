@@ -1,9 +1,9 @@
 === Word Freshener ===
-Contributors: Word Freshener
-Tags:  word,filter,replace,database,freshener,block,slang,unwanted,bad,change,frontend,censored
+Contributors: sourov
+Tags:  word,filter,replace,database,censored,block,slang,unwanted,bad,change,freshener
 Requires at least: 3.8
 Tested up to: 4.9.7
-Stable tag: 1.0
+Stable tag: 1.1
 Copyright: Hossain Amin (Sourov)
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
